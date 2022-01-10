@@ -18,11 +18,15 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import java.lang.reflect.Array.get
 import java.util.concurrent.TimeUnit
-
+/*
 val repositoryModule = module{
     single{HPRepositoryImpl(get())}
 }
+ */
+
 val networkModule= module{
+
+    fun provideRepos(harryPotterApi: HarryPotterApi): HPRepository = HPRepositoryImpl(harryPotterApi)
 
     fun provideMoshi() = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
 
@@ -46,6 +50,7 @@ val networkModule= module{
             .build()
             .create(HarryPotterApi::class.java)
 
+    single{ provideRepos(get())}
     single{ provideMoshi() }
     single{ provideLoggingInterceptor() }
     single{ provideOkHttpClient(get()) }

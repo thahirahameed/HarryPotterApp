@@ -13,7 +13,7 @@ class HPApp: Application() {
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@HPApp)
-            modules(listOf(repositoryModule,networkModule, appModule, viewModelModule))
+            modules(listOf(networkModule, appModule, viewModelModule))
         }
     }
 }

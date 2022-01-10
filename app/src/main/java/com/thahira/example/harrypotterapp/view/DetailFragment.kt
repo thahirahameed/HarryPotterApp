@@ -9,7 +9,9 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.thahira.example.harrypotterapp.adapter.HPRecyclerViewAdapter
 import com.thahira.example.harrypotterapp.databinding.FragmentDetailBinding
+import com.thahira.example.harrypotterapp.model.CharactersItem
 import com.thahira.example.harrypotterapp.utils.UIState
+import com.thahira.example.harrypotterapp.view.FirstFragment.Companion.staff
 import com.thahira.example.harrypotterapp.viewmodel.HPViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -20,9 +22,15 @@ class DetailFragment : Fragment() {
         FragmentDetailBinding.inflate(layoutInflater)
     }
 
-    private var hpRecyclerViewAdapter: HPRecyclerViewAdapter= HPRecyclerViewAdapter(this)
+    private lateinit var hpRecyclerViewAdapter: HPRecyclerViewAdapter
     private val hpViewModel: HPViewModel by viewModel()
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        val listOfCharacters : MutableList<CharactersItem> = mutableListOf()
+        super.onCreate(savedInstanceState)
+        hpRecyclerViewAdapter = HPRecyclerViewAdapter(listOfCharacters)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,15 +51,17 @@ class DetailFragment : Fragment() {
     {
        when(uiState){
            is UIState.LOADING ->{
+               binding.fragDetail.visibility = View.GONE
               Toast.makeText(requireContext(),"LOADING...",Toast.LENGTH_LONG).show()
            }
            is UIState.SUCCESS ->{
                binding.fragDetail.visibility = View.VISIBLE
+
                hpRecyclerViewAdapter.setCharacters(uiState.characters)
            }
            is UIState.ERROR ->{
                binding.fragDetail.visibility = View.GONE
-               Toast.makeText(requireContext(),"Error",Toast.LENGTH_LONG).show()
+               Toast.makeText(requireContext(),"Error"+uiState.error.localizedMessage,Toast.LENGTH_LONG).show()
            }
        }
     }

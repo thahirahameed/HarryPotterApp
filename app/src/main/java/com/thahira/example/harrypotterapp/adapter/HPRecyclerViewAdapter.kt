@@ -14,7 +14,6 @@ import com.thahira.example.harrypotterapp.view.FirstFragment.Companion.staff
 import com.thahira.example.harrypotterapp.view.StudentFragment.Companion.house
 
 class HPRecyclerViewAdapter(
-    detailsFragment: DetailFragment,
     private val listOfCharacters : MutableList<CharactersItem> = mutableListOf()
 ): RecyclerView.Adapter<HPViewHolder>(){
 
@@ -33,15 +32,8 @@ class HPRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: HPViewHolder, position: Int) {
     val card = listOfCharacters[position]
-        if(staff) {
-            card.hogwartsStaff?.let {
-                holder.setInformationToTheViewHolder(card)
-            }?: ""
-        }else
-            if(house == card.house)
-        {
-            holder.setInformationToTheViewHolder(card)
-        }
+
+        holder.setInformationToTheViewHolder(card)
 
     }
 
