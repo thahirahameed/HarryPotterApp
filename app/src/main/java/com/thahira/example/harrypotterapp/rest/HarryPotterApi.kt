@@ -7,12 +7,16 @@ import retrofit2.http.GET
 
 interface HarryPotterApi {
 
-    @GET(CHARACTERS)
-    suspend fun getCharacters():Response<List<CharactersItem>>
+    @GET(STAFF)
+    suspend fun getStaffCharacters():Response<List<CharactersItem>>
+
+    @GET(STUDENT)
+    suspend fun getStudentCharacters():Response<List<CharactersItem>>
 
     companion object {
         const val BASE_URL = "http://hp-api.herokuapp.com/"
-        private const val CHARACTERS = "api/characters"
+        private const val STAFF = "api/characters/staff"
+        private const val STUDENT = "api/characters/students"
     }
 
 }

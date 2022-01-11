@@ -24,6 +24,19 @@ class HPRecyclerViewAdapter(
         notifyDataSetChanged()
     }
 
+    fun setStudentCharacters(characters: List<CharactersItem>)
+    {
+        listOfCharacters.clear()
+        var i: Int = 0
+        while(i < characters.size)
+        {
+            if (house == characters[i].house)
+                listOfCharacters.add(characters[i])
+            i++
+        }
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HPViewHolder {
         LayoutInflater.from(parent.context).inflate(R.layout.card_details,parent,false).apply{
             return HPViewHolder(this)

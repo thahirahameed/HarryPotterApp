@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.thahira.example.harrypotterapp.rest.HPRepository
 import com.thahira.example.harrypotterapp.utils.UIState
+import com.thahira.example.harrypotterapp.view.StudentFragment.Companion.house
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.*
 
@@ -24,7 +25,12 @@ class HPViewModel(
         }
     }
 
-
+    fun getStudentCharacters(){
+        collectCardInfo()
+        launch {
+            hpRepository.getStudentList()
+        }
+    }
     private fun collectCardInfo(){
         launch{
             hpRepository.characterList.collect { uiState ->

@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">HarryPotterApp</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hogwarts_character_list">HOGWARTS CHARACTER LIST</string>
+    <string name="GRYFFINDOR">GRYFFINDOR</string>
+    <string name="SLYTHERIN">SLYTHERIN</string>
+    <string name="HUFFLEPUFF">HUFFLEPUFF</string>
+    <string name="RAVENCLAW">RAVENCLAW</string>
+
 </resources>

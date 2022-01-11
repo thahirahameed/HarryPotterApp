@@ -15,7 +15,7 @@
 
 
     <TextView
-        android:id="@+id/heading"
+        android:id="@+id/title_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="75dp"
@@ -29,14 +29,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/title_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25dp"
+        android:minHeight="30dp"
+        android:src="@drawable/harrypotter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/staff_button"
         android:layout_width="152dp"
         android:layout_height="70dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="388dp"
         android:text="STAFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,10 +56,10 @@
         android:id="@+id/student_button"
         android:layout_width="143dp"
         android:layout_height="79dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="492dp"
         android:text="STUDENTS"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

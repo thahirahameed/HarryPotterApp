@@ -42,7 +42,17 @@ class DetailFragment : Fragment() {
         }
 
         hpViewModel.allCharacters.observe(viewLifecycleOwner,::handleResult)
-        hpViewModel.getAllCharacters()
+        if(staff) {
+            hpViewModel.getAllCharacters()
+            binding.refreshItems.setOnRefreshListener{
+                hpViewModel.getAllCharacters()
+            }
+        }else{
+            hpViewModel.getStudentCharacters()
+            binding.refreshItems.setOnRefreshListener{
+                hpViewModel.getStudentCharacters()
+            }
+        }
 
         return binding.root
     }
@@ -56,12 +66,15 @@ class DetailFragment : Fragment() {
            }
            is UIState.SUCCESS ->{
                binding.fragDetail.visibility = View.VISIBLE
-
-               hpRecyclerViewAdapter.setCharacters(uiState.characters)
+               if(staff) {
+                   hpRecyclerViewAdapter.setCharacters(uiState.characters)
+               }else{
+                   hpRecyclerViewAdapter.setStudentCharacters(uiState.characters)
+               }
            }
            is UIState.ERROR ->{
                binding.fragDetail.visibility = View.GONE
-               Toast.makeText(requireContext(),"Error"+uiState.error.localizedMessage,Toast.LENGTH_LONG).show()
+               Toast.makeText(requireContext(),"Error: "+ uiState.error.localizedMessage,Toast.LENGTH_LONG).show()
            }
        }
     }
