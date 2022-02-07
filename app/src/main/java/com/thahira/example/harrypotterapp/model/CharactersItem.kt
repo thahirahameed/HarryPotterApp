@@ -3,6 +3,7 @@ package com.thahira.example.harrypotterapp.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 @JsonClass(generateAdapter = true)
 data class CharactersItem(
@@ -44,4 +45,4 @@ data class CharactersItem(
     val wizard: Boolean,
     @Json(name = "yearOfBirth")
     val yearOfBirth: String
-)
+): Serializable

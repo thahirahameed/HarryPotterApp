@@ -58,7 +58,7 @@ val networkModule= module{
 }
 
  val appModule= module{
-    single{ HPRecyclerViewAdapter(get()) }
+    single{ HPRecyclerViewAdapter(get(),get()) }
     single{ FirstFragment() }
      single{ DetailFragment() }
      single { StudentFragment() }

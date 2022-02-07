@@ -11,6 +11,7 @@ import com.thahira.example.harrypotterapp.adapter.HPRecyclerViewAdapter
 import com.thahira.example.harrypotterapp.databinding.FragmentDetailBinding
 import com.thahira.example.harrypotterapp.model.CharactersItem
 import com.thahira.example.harrypotterapp.utils.UIState
+import com.thahira.example.harrypotterapp.utils.switchFragment
 import com.thahira.example.harrypotterapp.view.FirstFragment.Companion.staff
 import com.thahira.example.harrypotterapp.viewmodel.HPViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -29,7 +30,7 @@ class DetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val listOfCharacters : MutableList<CharactersItem> = mutableListOf()
         super.onCreate(savedInstanceState)
-        hpRecyclerViewAdapter = HPRecyclerViewAdapter(listOfCharacters)
+        hpRecyclerViewAdapter = HPRecyclerViewAdapter(listOfCharacters,parentFragmentManager)
     }
 
     override fun onCreateView(
@@ -82,5 +83,6 @@ class DetailFragment : Fragment() {
 
         @JvmStatic
         fun newInstance() = DetailFragment()
+        lateinit var VALUE : CharactersItem
     }
 }

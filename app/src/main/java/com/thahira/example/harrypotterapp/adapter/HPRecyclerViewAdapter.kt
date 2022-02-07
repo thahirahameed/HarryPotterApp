@@ -5,16 +5,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.thahira.example.harrypotterapp.R
 import com.thahira.example.harrypotterapp.model.CharactersItem
+import com.thahira.example.harrypotterapp.utils.switchFragment
 import com.thahira.example.harrypotterapp.view.DetailFragment
 import com.thahira.example.harrypotterapp.view.FirstFragment.Companion.staff
 import com.thahira.example.harrypotterapp.view.StudentFragment.Companion.house
+import com.thahira.example.harrypotterapp.view.WandFragment
 
 class HPRecyclerViewAdapter(
-    private val listOfCharacters : MutableList<CharactersItem> = mutableListOf()
+    private val listOfCharacters : MutableList<CharactersItem> = mutableListOf(),
+    val parentFragmentManager: FragmentManager
 ): RecyclerView.Adapter<HPViewHolder>(){
 
     fun setCharacters(characters: List<CharactersItem>)
@@ -46,7 +51,7 @@ class HPRecyclerViewAdapter(
     override fun onBindViewHolder(holder: HPViewHolder, position: Int) {
     val card = listOfCharacters[position]
 
-        holder.setInformationToTheViewHolder(card)
+        holder.setInformationToTheViewHolder(card,parentFragmentManager)
 
     }
 
@@ -61,7 +66,9 @@ class HPViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
     private val characterHouse: TextView = itemView.findViewById(R.id.house)
     private val characterImage: ImageView = itemView.findViewById(R.id.char_image)
 
-    fun setInformationToTheViewHolder(characterItem: CharactersItem)
+    private val cardClick: CardView = itemView.findViewById(R.id.card_click)
+
+    fun setInformationToTheViewHolder(characterItem: CharactersItem, parentFragmentManager: FragmentManager)
     {
         characterName.text = characterItem.name
         dateOfBirth.text = characterItem.dateOfBirth
@@ -72,5 +79,8 @@ class HPViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
             .load(characterItem.image)
             .into(characterImage)
 
+        cardClick.setOnClickListener{
+            switchFragment(parentFragmentManager,WandFragment.newInstance(characterItem))
+        }
     }
 }

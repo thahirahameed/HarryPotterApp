@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.thahira.example.harrypotterapp.databinding.FragmentFirstBinding
-import com.thahira.example.harrypotterapp.utils.FragmentSwitcher
+import com.thahira.example.harrypotterapp.utils.switchFragment
 
 
 class FirstFragment() : Fragment() {
@@ -15,7 +15,6 @@ class FirstFragment() : Fragment() {
         FragmentFirstBinding.inflate(layoutInflater)
    }
 
-    private val fragmentSwitcher: FragmentSwitcher = FragmentSwitcher()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,11 +22,11 @@ class FirstFragment() : Fragment() {
     ): View? {
 
         binding.staffButton.setOnClickListener(){
-            fragmentSwitcher.switchFragment(parentFragmentManager,DetailFragment.newInstance())
+            switchFragment(parentFragmentManager,DetailFragment.newInstance())
         }
 
         binding.studentButton.setOnClickListener(){
-            fragmentSwitcher.switchFragment(parentFragmentManager,StudentFragment.newInstance())
+            switchFragment(parentFragmentManager,StudentFragment.newInstance())
         }
 
         return binding.root

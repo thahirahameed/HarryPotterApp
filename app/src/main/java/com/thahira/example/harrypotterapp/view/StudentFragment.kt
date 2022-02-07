@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.thahira.example.harrypotterapp.databinding.FragmentStudentBinding
-import com.thahira.example.harrypotterapp.utils.FragmentSwitcher
+import com.thahira.example.harrypotterapp.utils.switchFragment
 import com.thahira.example.harrypotterapp.view.FirstFragment.Companion.staff
 
 class StudentFragment : Fragment() {
@@ -15,7 +15,7 @@ class StudentFragment : Fragment() {
         FragmentStudentBinding.inflate(layoutInflater)
     }
 
-    private val fragmentSwitcher : FragmentSwitcher = FragmentSwitcher()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,25 +25,25 @@ class StudentFragment : Fragment() {
         binding.gryffindorButton.setOnClickListener(){
             staff =false
             house = "Gryffindor"
-            fragmentSwitcher.switchFragment(parentFragmentManager,DetailFragment.newInstance())
+            switchFragment(parentFragmentManager,DetailFragment.newInstance())
         }
 
         binding.slytherinButton.setOnClickListener(){
             staff =false
             house = "Slytherin"
-            fragmentSwitcher.switchFragment(parentFragmentManager,DetailFragment.newInstance())
+           switchFragment(parentFragmentManager,DetailFragment.newInstance())
         }
 
         binding.hufflepuffButton.setOnClickListener(){
             staff =false
             house = "Hufflepuff"
-            fragmentSwitcher.switchFragment(parentFragmentManager,DetailFragment.newInstance())
+            switchFragment(parentFragmentManager,DetailFragment.newInstance())
         }
 
         binding.ravenclawButton.setOnClickListener(){
             staff =false
             house = "Ravenclaw"
-            fragmentSwitcher.switchFragment(parentFragmentManager,DetailFragment.newInstance())
+            switchFragment(parentFragmentManager,DetailFragment.newInstance())
         }
 
 
