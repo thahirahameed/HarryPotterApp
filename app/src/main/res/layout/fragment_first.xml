@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:minWidth="25dp"
         android:minHeight="30dp"
-        android:src="@drawable/harrypotter"
+        android:src="@drawable/harrypotter1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

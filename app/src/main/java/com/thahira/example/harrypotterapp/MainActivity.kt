@@ -14,4 +14,10 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+
+    override fun onBackPressed(){
+        super.onBackPressed()
+        finish()
+    }
+
 }
