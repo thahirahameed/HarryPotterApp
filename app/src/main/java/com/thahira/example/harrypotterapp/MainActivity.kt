@@ -3,6 +3,10 @@ package com.thahira.example.harrypotterapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.thahira.example.harrypotterapp.view.FirstFragment
+import android.content.Intent
+
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,9 +19,5 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    override fun onBackPressed(){
-        super.onBackPressed()
-        finish()
-    }
 
 }

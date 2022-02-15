@@ -61,8 +61,8 @@ class HPRecyclerViewAdapter(
 
 class HPViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
     private val characterName: TextView = itemView.findViewById(R.id.character_name)
-    private val dateOfBirth: TextView = itemView.findViewById(R.id.date_of_birth)
-    private val characterGender: TextView = itemView.findViewById(R.id.gender)
+   // private val dateOfBirth: TextView = itemView.findViewById(R.id.date_of_birth)
+   // private val characterGender: TextView = itemView.findViewById(R.id.gender)
     private val characterHouse: TextView = itemView.findViewById(R.id.house)
     private val characterImage: ImageView = itemView.findViewById(R.id.char_image)
 
@@ -71,12 +71,14 @@ class HPViewHolder(itemView : View): RecyclerView.ViewHolder(itemView){
     fun setInformationToTheViewHolder(characterItem: CharactersItem, parentFragmentManager: FragmentManager)
     {
         characterName.text = characterItem.name
-        dateOfBirth.text = characterItem.dateOfBirth
-        characterGender.text = characterItem.gender
+        //dateOfBirth.text = characterItem.dateOfBirth
+       // characterGender.text = characterItem.gender
         characterHouse.text = characterItem.house
 
         Glide.with(itemView)
             .load(characterItem.image)
+            .override(200,200)
+            .centerCrop()
             .into(characterImage)
 
         cardClick.setOnClickListener{

@@ -32,6 +32,14 @@ class FirstFragment() : Fragment() {
         return binding.root
     }
 
+/*
+    override fun onBackPressed(){
+        super.onBackPressed()
+        finish()
+    }
+
+ */
+
     companion object {
         //for checking if the character is a staff or student
         var staff: Boolean = true
